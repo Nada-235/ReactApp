@@ -1,11 +1,11 @@
-import StudentsList from './component/StudentsList';
+import StudentsAttend from './component/StudentsAttend';
 import './App.css'
 
 function App() {
   return (
     <div className='body'>  
     <br></br> 
-       <StudentsList />
+       <StudentsAttend />
     </div>
   );
 }
