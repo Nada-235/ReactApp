@@ -1,6 +1,6 @@
 import React from 'react';
 import '../StudentsList.css';
-
+           
 export default function StudentsAttend() {
   const students = ['Rusul', 'Sara', 'Yasmin', 'Mais'];
   const attenStd = ['Rusul', 'Mais'];
