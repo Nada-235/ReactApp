@@ -1,51 +1,43 @@
-import { React, useState } from 'react';
-import './App.css'
-
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
-  const [AnswState, setAnswState] = useState(false)
   const Answers = [
     {
       Answer: "He lost his simecolons and couldn't find them anywhere.",
-      State: false
+      State: false,
     },
     {
       Answer: "He lost his semicolons and couldn't find them anywhere.",
-      State: true
+      State: true,
     },
     {
       Answer: "He got tired of all the bugs in his code.",
-      State: false
+      State: false,
     },
-  ]
-  console.log(AnswState);
+  ];
+
+  const [selectedAnswer, setSelectedAnswer] = useState('');
+
   return (
-    <div >
-      <h4> Why did the JavaScript developer quite his job ?</h4>
-      {Answers.map(
-        (Answer) => {
-          return (
-            // < AnswerCom  Answer={Answer} Check={Answer.State}/>
-            <div onClick={() => setAnswState(Answer.State)} >
-              {Answer.Answer}
-
-              <div style={{
-                backgroundColor: 'red'
-              }}>
-                {
-                  AnswState && AnswState === Answer.State ? "correct" : ""
-                }
-              </div>
-            </div>
-          )
-        }
-      )}
-      <div />
-
+    <div>
+      <h4>Why did the JavaScript developer quit his job?</h4>
+      {Answers.map((Answer, index) => (
+        <div
+          key={index}
+          onClick={() => setSelectedAnswer(index)}
+          style={{
+            backgroundColor: selectedAnswer === index ? 'lightgray' : 'white',
+          }}
+        >
+          {Answer.Answer}
+          <div style={{ backgroundColor: 'green' }}>
+            {selectedAnswer === index && Answer.State ? 'correct' : ''}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
-
-   
 
 export default App;
